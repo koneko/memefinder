@@ -1,0 +1,36 @@
+body {
+    /* background-color: rgb(5, 12, 27); */
+    background-image: linear-gradient(rgb(0, 0, 83), rgb(4, 0, 41));
+    background-attachment: fixed;
+}
+
+.head {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.headmain {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.headmain a {
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+
+.current {
+    color: rgb(252, 252, 252) !important;
+}
+
+.holder {
+    width: 100%;
+}
+
+h3 {
+    color: white;
+}
