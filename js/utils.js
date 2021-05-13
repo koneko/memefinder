@@ -27,7 +27,7 @@ async function getMemes(num) {
                     div.innerHTML =
                         `
                 <h3>${meme.title}</h3>
-                <img src="${meme.preview[0]}">
+                <img src="${meme.preview[0]}"><br><br>
                 <button onclick="viewFull('${meme.title}', '${meme.author}', '${meme.preview[0]}', '${meme.subreddit}', '${meme.postLink}', '${meme.url}')">View</button>
                 <button onclick="memeDelete(this.parentNode)">Remove meme</button>
                 `
@@ -35,11 +35,12 @@ async function getMemes(num) {
                     div.innerHTML =
                         `
                 <h3>${meme.title}</h3>
-                <img src="${meme.preview[2]}">
+                <img src="${meme.preview[2]}"><br><br>
                 <button onclick="viewFull('${meme.title}', '${meme.author}', '${meme.preview[2]}', '${meme.subreddit}', '${meme.postLink}', '${meme.url}')">View</button>
                 <button onclick="memeDelete(this.parentNode)">Remove meme</button>
                 `
                 }
+                div.className = 'meme'
                 holder.appendChild(div)
             });
             addButton()
@@ -78,16 +79,22 @@ function memeDelete(meme) {
 
 
 function addButton() {
+    let br = document.createElement('br')
     let holder = document.querySelector('.holder')
+    let buttondiv = document.createElement('div')
+    buttondiv.className = "buttondiv"
     let button = document.createElement("button")
     button.className = "getmemesbutton"
+    buttondiv.style.textAlign = 'center'
     button.innerText = "More memes"
     button.onclick = () => getMemes(50)
-    holder.appendChild(button)
+    holder.appendChild(br)
+    holder.appendChild(buttondiv)
+    buttondiv.appendChild(button)
 }
 
 function removeButton() {
-    let button = document.querySelector('.getmemesbutton')
+    let button = document.querySelector('.buttondiv')
     button.remove()
 }
 
