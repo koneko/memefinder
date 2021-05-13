@@ -28,7 +28,7 @@ async function getMemes(num) {
                         `
                 <h3>${meme.title}</h3>
                 <img src="${meme.preview[0]}"><br><br>
-                <button onclick="viewFull('${meme.title}', '${meme.author}', '${meme.preview[0]}', '${meme.subreddit}', '${meme.postLink}', '${meme.url}')">View</button>
+                <button onclick="window.open('${meme.url}')">Raw</button>
                 <button onclick="memeDelete(this.parentNode)">Remove meme</button>
                 `
                 } else {
@@ -36,7 +36,7 @@ async function getMemes(num) {
                         `
                 <h3>${meme.title}</h3>
                 <img src="${meme.preview[2]}"><br><br>
-                <button onclick="viewFull('${meme.title}', '${meme.author}', '${meme.preview[2]}', '${meme.subreddit}', '${meme.postLink}', '${meme.url}')">View</button>
+                <button onclick="window.open('${meme.url}')">Raw</button>
                 <button onclick="memeDelete(this.parentNode)">Remove meme</button>
                 `
                 }
@@ -47,7 +47,7 @@ async function getMemes(num) {
         });
 }
 
-
+//<button onclick="viewFull('${meme.title}', '${meme.author}', '${meme.preview[0]}', '${meme.subreddit}', '${meme.postLink}', '${meme.url}')">View</button>
 function getFromSub(num, sub) {
     fetch(`https://meme-api.herokuapp.com/gimme/${sub}/${num}`)
         .then(response => response.json())
